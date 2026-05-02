@@ -15,6 +15,16 @@ function Trailers() {
   const videoRef = useRef(null);
   const carouselRef = useRef(null);
 
+  // Add this useEffect
+useEffect(() => {
+  setTrailers(trailersData);
+  if (trailersData.length > 0) {
+    setFeaturedTrailer(trailersData[0]);
+  }
+  setLoading(false);
+}, []);
+
+
 useEffect(() => {
     // no-op kept for parity with original code
     const handleScroll = () => {};
@@ -352,9 +362,9 @@ const togglePlay = () => {
             </div>
       </div>
     </main>
-      <style jsx>{trailersCSS}</style>
+      <style >{trailersCSS}</style>
   </div>
 );
 }
 
-export default Trailers
+export default Trailers;
